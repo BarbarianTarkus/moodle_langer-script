@@ -19,7 +19,7 @@ def get_translation(original, lang):
     Get the translation of a text. If the translation is cached, return the cached version.
     Otherwise, get the translation from DeepL and cache it.
     """
-    
+
     # Check if the translation is in the cache
     if original in translation_cache:
         return translation_cache[original]
@@ -44,7 +44,7 @@ def file_open():
     """
     Open a file and return its lines and name.
     """
-    
+
     # read file
     print("Drag and drop the PHP file")
     print("The file has to be part of the english lang version of the plugin")
@@ -68,7 +68,7 @@ def choose_lang(file_name):
     """
     Ask the user for the language code to translate to and return it.
     """
-    
+
     # Input the lang code you want to translate
     print("Input the lang code you want to translate for example: es")
     lang = input()
@@ -148,7 +148,7 @@ def choose_translation_mode():
     Ask the user to choose a translation mode and return the chosen mode.
     """
     print("Choose translation mode")
-    
+
     # Define the options
     options = ["Entire file", "Line by line"]
 
@@ -172,7 +172,7 @@ def main():
     Main function of the program. Handles the file opening, language selection, translation, and writing to the output file.
     """
     print("Welcome to Langer!")
-    
+
     lines, file_name = file_open()
 
     lang = choose_lang(file_name)
