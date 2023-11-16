@@ -135,11 +135,11 @@ def one_line_translate(value, lang):
     answers = inquirer.prompt(questions)
 
     # Handle the user's selection
-    if answers["Deepl(auto)"] == "auto":
-        value = get_translation(value, lang)
-    elif answers["Manual Translation"] == "man":
+    if answers["choice"] == "Manual Translation":
         print(f"Enter translation for {value}:")
         value = input()
+    elif answers["choice"] == "Deepl(auto)":
+        value = get_translation(value, lang)
 
     return value
 
