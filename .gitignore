@@ -1,3 +1,6 @@
 .env
 *.php
 translation_cache.json
+build/
+dist/
+langer.spec

@@ -121,13 +121,13 @@ def one_line_translate(value, lang):
     """
     print(f"How do you want to translate this text: {value}")
     # Define the options
-    options = ["Deepl(auto)", "Manual Translation"]
+    options = ["[1] Deepl(auto)", "[2] Manual Translation"]
 
     # Ask the user to select an option
     questions = [
         inquirer.List(
             "choice",
-            message="Select an option",
+            message=f"[{value}] - Choose translation mode",
             choices=options,
         ),
     ]
@@ -135,12 +135,11 @@ def one_line_translate(value, lang):
     answers = inquirer.prompt(questions)
 
     # Handle the user's selection
-    if answers["choice"] == "Manual Translation":
+    if answers["choice"].startswith("[2]"):
         print(f"Enter translation for {value}:")
         value = input()
-    elif answers["choice"] == "Deepl(auto)":
+    elif answers["choice"].startswith("[1]"):
         value = get_translation(value, lang)
-
     return value
 
 
